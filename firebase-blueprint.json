@@ -1,0 +1,78 @@
+{
+  "entities": {
+    "RecapItem": {
+      "title": "RecapItem",
+      "description": "User generated Myanmar video, SRT and script recap data",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the owner"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the recap or video"
+        },
+        "sourceType": {
+          "type": "string",
+          "enum": ["video", "srt", "text", "youtube", "tiktok"],
+          "description": "Source type of the recap"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "description": "Optional video URL or social link"
+        },
+        "originalText": {
+          "type": "string",
+          "description": "Original transcription or source text"
+        },
+        "myanmarSummary": {
+          "type": "string",
+          "description": "Quick Myanmar summary"
+        },
+        "myanmarScript": {
+          "type": "string",
+          "description": "Full Myanmar voiceover script for audio reading"
+        },
+        "subtitlesSrt": {
+          "type": "string",
+          "description": "SRT format subtitle cues"
+        },
+        "voiceTone": {
+          "type": "string",
+          "enum": ["male_narrator", "female_narrator", "storyteller", "energetic", "calm", "news_anchor"],
+          "description": "Voice profile for Myanmar speech"
+        },
+        "speechSpeed": {
+          "type": "number",
+          "description": "Playback speech rate multiplier (e.g. 1.0)"
+        },
+        "speechPitch": {
+          "type": "number",
+          "description": "Speech pitch multiplier (e.g. 1.0)"
+        },
+        "durationSeconds": {
+          "type": "integer",
+          "description": "Duration in seconds"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of creation"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of last update"
+        }
+      },
+      "required": ["userId", "title", "sourceType", "myanmarSummary", "myanmarScript", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/recaps/{recapId}": {
+      "schema": "RecapItem",
+      "description": "Collection of recaps created by each authenticated user"
+    }
+  }
+}

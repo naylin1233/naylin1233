@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Recap MM",
+  "description": "မြန်မာအသံနှင့် စာတန်းထိုး Recap အက်ပ် (Myanmar Voice \u0026 SRT Video Recap)",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
